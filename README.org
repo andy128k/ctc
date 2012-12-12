@@ -1,0 +1,42 @@
+* ctc (closure template compiler)
+
+  This is a command line interface to cl-closure template library.
+
+** Prerequisites
+
+   Command-line-arguments and cl-closure-template have to be installed and available to ASDF.
+
+   The easiest way is to use Quicklisp:
+
+   #+BEGIN_SRC lisp
+   (ql:quickload '(command-line-arguments closure-template))
+   #+END_SRC
+
+** Compile
+
+   Type one of the following commands to compile ctc binary.
+
+   #+BEGIN_SRC sh
+   make
+   #+END_SRC
+
+   #+BEGIN_SRC sh
+   make ccl
+   #+END_SRC
+
+   #+BEGIN_SRC sh
+   make ccl64
+   #+END_SRC
+
+   #+BEGIN_SRC sh
+   make clisp
+   #+END_SRC
+
+   #+BEGIN_SRC sh
+   make ecl
+   #+END_SRC
+
+** Attention to ECL users
+
+   Use latest version of ECL (12.12.1) and Closer-mop!
+
