@@ -56,12 +56,13 @@
 
      (let ((backend (create-backend (second (member :lang options))))
 	   (output (second (member :output options)))
-	   (input (mapcar #'parse-namestring arguments)))
+	   (input (mapcar (lambda (p)
+                        (alexandria:read-file-into-string (parse-namestring p) :external-format :utf8))
+	                arguments)))
 
        (if input
 	   (save-file output
-		      (closure-template:compile-template backend
-							 input))
+		      (closure-template:compile-template backend input))
 	   (print-usage-and-die "No input files specified.")))))
 
   (quit-program))

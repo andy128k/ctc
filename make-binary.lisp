@@ -3,6 +3,11 @@
 
 (defun make-binary (&optional (filename "ctc"))
   #+sbcl
+  (progn
+    (setf asdf/image:*image-entry-point* 'main)
+    (asdf/image:dump-image "ctc" :executable t))
+
+  #+nil
   (sb-ext:save-lisp-and-die filename
 			    #+sb-core-compression :compression #+sb-core-compression t
 			    :executable t
